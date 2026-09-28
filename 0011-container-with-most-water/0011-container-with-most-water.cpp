@@ -1,34 +1,33 @@
 class Solution {
 public:
     int maxArea(vector<int>& height) {
-        
+        int n = height.size();
         int left = 0;
-        int right = height.size()-1;
-        int maxarea = 0;
+        int right = n-1;
+        int maxarea =0;
 
         while(left<right)
         {
-           int width = right-left;
-           int currheight = min(height[left],height[right]);
-           int area = currheight*width;
-           maxarea = max(maxarea,area);
+            int width = right-left;
+            int hieght = min(height[left],height[right]);
 
-           if(height[left]<height[right])
-           {
+            int area = hieght * width;
+
+            maxarea=max(area,maxarea);
+        
+        if(height[left]<height[right])
+        {
             left++;
-           }
-          else
-          {
+        }
+        else{
             right--;
-          }
-            
-
+        }
         }
         return maxarea;
-        
     }
+        
+    
 };
-
 
 // Synced seamlessly with LeetHub Pro
 // Pro features: https://bit.ly/leethubpro | Free version: https://bit.ly/leethubv4
